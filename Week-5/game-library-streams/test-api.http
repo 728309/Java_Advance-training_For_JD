@@ -1,0 +1,90 @@
+### Public: Get all games
+GET http://localhost:8080/games
+
+
+### Login and save JWT token
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "password"
+}
+
+> {% client.global.set("token", response.body.token); %}
+
+
+### Protected: Add game with JWT
+POST http://localhost:8080/games
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Minecraft",
+  "genre": "Sandbox",
+  "platform": "PC"
+}
+
+
+### Protected: Try duplicate game with JWT
+POST http://localhost:8080/games
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Minecraft",
+  "genre": "Sandbox",
+  "platform": "PC"
+}
+
+
+### Public: Get game by id
+GET http://localhost:8080/games/1
+
+
+### Protected: Update game with JWT
+PUT http://localhost:8080/games/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Minecraft Java Edition",
+  "genre": "Sandbox",
+  "platform": "PC"
+}
+
+
+### Protected: Delete game with JWT
+DELETE http://localhost:8080/games/1
+Authorization: Bearer {{token}}
+
+
+### Public: Get games by platform
+GET http://localhost:8080/games/platform/PC
+
+
+### Public: Get games by genre
+GET http://localhost:8080/games/genre/Sandbox
+
+
+### Public: Search games by title
+GET http://localhost:8080/games/search?title=mine
+
+
+### Public: Get all game titles
+GET http://localhost:8080/games/titles
+
+
+### Public: Count games by platform
+GET http://localhost:8080/games/count/platform/PC
+
+### Protected: Add second game with JWT
+POST http://localhost:8080/games
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "FIFA 25",
+  "genre": "Sports",
+  "platform": "PlayStation"
+}
