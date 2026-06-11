@@ -1,0 +1,14 @@
+### Normal blocking task
+GET http://localhost:8080/tasks/normal
+
+
+### Async task
+GET http://localhost:8080/tasks/async
+
+
+### Increment counter
+POST http://localhost:8080/tasks/counter/increment
+
+
+### Get counter
+GET http://localhost:8080/tasks/counter
