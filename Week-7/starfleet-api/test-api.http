@@ -1,0 +1,48 @@
+### Get all ships
+GET http://localhost:8080/ships
+X-API-KEY: starfleet-secret-key
+
+
+### Create ship
+POST http://localhost:8080/ships
+X-API-KEY: starfleet-secret-key
+Content-Type: application/json
+
+{
+  "name": "Enterprise",
+  "classType": "Constitution",
+  "crewCapacity": 2
+}
+
+
+### Create crew member 1
+POST http://localhost:8080/crewmembers
+X-API-KEY: starfleet-secret-key
+Content-Type: application/json
+
+{
+  "name": "James T Kirk",
+  "rank": "Captain",
+  "shipId": 1
+}
+
+
+### Create mission
+POST http://localhost:8080/missions
+X-API-KEY: starfleet-secret-key
+Content-Type: application/json
+
+{
+  "name": "Explore the universe",
+  "shipId": 1,
+  "startDate": "2024-06-24",
+  "status": "CURRENT"
+}
+
+
+### Get mission history
+GET http://localhost:8080/missions/history
+X-API-KEY: starfleet-secret-key
+
+### Should fail without API key
+GET http://localhost:8080/ships
