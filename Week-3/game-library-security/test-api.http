@@ -1,0 +1,50 @@
+### Get all games
+GET http://localhost:8080/games
+
+### Add a game
+POST http://localhost:8080/games
+Content-Type: application/json
+
+{
+  "title": "Minecraft",
+  "genre": "Sandbox",
+  "platform": "PC"
+}
+
+### Try duplicate game
+POST http://localhost:8080/games
+Content-Type: application/json
+
+{
+  "title": "Minecraft",
+  "genre": "Sandbox",
+  "platform": "PC"
+}
+
+### Get game by id
+GET http://localhost:8080/games/1
+
+### Update game
+PUT http://localhost:8080/games/1
+Content-Type: application/json
+
+{
+  "title": "Minecraft Java Edition",
+  "genre": "Sandbox",
+  "platform": "PC"
+}
+
+### Delete game
+DELETE http://localhost:8080/games/1
+
+
+### Add game with basic auth
+POST http://localhost:8080/games
+Authorization: Basic YWRtaW46cGFzc3dvcmQ=
+Content-Type: application/json
+
+{
+  "title": "Minecraft",
+  "genre": "Sandbox",
+  "platform": "PC"
+}
